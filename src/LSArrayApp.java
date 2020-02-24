@@ -1,5 +1,3 @@
-package com.cpt.loadshedding;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
