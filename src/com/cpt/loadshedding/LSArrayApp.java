@@ -19,6 +19,6 @@ public class LSArrayApp {
             e.printStackTrace();
         }
 
-        System.out.println("Hello KCK");
+        System.out.println("Hello KC");
     }
 }
