@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class LSArrayApp {
     public static void main(String[] args) {
         try {
-            File myObj = new File("/../../../../RawData/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
+            File myObj = new File("Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
