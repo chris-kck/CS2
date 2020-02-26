@@ -1,15 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-import java.util.*;
 import java.lang.*;
-import java.io.*;
+
 
 
 public class LSArrayApp {
 
     static String[] ArrayData= new String[2976];
+    static int opCount = 0;
 
     public static void main(String[] args) {
         //read file and add to list
@@ -21,6 +20,7 @@ public class LSArrayApp {
 	    while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
         		ArrayData[counter++]=data;
+                opCount++;
                 //System.out.println(data);
             }
             //System.out.println("The element is "+ArrayData[2970]);
@@ -33,12 +33,16 @@ public class LSArrayApp {
         }
 
         //System.out.println("Hello KC");
-
-        if (args.length > 0){
+        if (args.length==0){
+            printAllAreas();
+            opCount++;
+        }
+        else{
             System.out.println("Number of arguments: "+args.length);
         printAreas(args[0], args[1], args[2]);
         }
-        else {System.out.println("No arguments passed");}
+
+        System.out.println("Value of opCount is:"+ opCount);
     }
     public static void printAreas (String stage, String day, String startTime){
         String concat = stage + "_" +  day + "_" + startTime;
@@ -51,13 +55,17 @@ public class LSArrayApp {
                 System.out.println("Matching areas: " + splitted[1] );
                 //.equals
                 //add matching areas to array which will be later output.
+                opCount++;
             }
 
         }
     }
-    public static void printAllAreas (
+    public static void printAllAreas() {
+        for (String data: ArrayData) {
+             System.out.println(data);
+        }
 
-    ){
+
 
     }
 }
