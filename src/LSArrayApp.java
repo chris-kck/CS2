@@ -50,12 +50,13 @@ public class LSArrayApp {
 
 
         for (String data: ArrayData) {
+            opCount++;
             String[] splitted = data.split(" "); //data element0 2 elements: date etc, areas
             if (splitted[0].equals(concat)){
                 System.out.println("Matching areas: " + splitted[1] );
                 //.equals
                 //add matching areas to array which will be later output.
-                opCount++;
+
             }
 
         }
