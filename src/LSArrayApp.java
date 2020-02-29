@@ -20,7 +20,6 @@ public class LSArrayApp {
 	    while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
         		ArrayData[counter++]=data;
-                opCount++;
                 //System.out.println(data);
             }
             //System.out.println("The element is "+ArrayData[2970]);
@@ -35,7 +34,6 @@ public class LSArrayApp {
         //System.out.println("Hello KC");
         if (args.length==0){
             printAllAreas();
-            opCount++;
         }
         else{
             System.out.println("Number of arguments: "+args.length);
@@ -54,6 +52,7 @@ public class LSArrayApp {
             String[] splitted = data.split(" "); //data element0 2 elements: date etc, areas
             if (splitted[0].equals(concat)){
                 System.out.println("Matching areas: " + splitted[1] );
+                break;
                 //.equals
                 //add matching areas to array which will be later output.
 
