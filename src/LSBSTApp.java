@@ -20,8 +20,14 @@ public static void main(String[] args){
         System.out.println("An error occurred.");
         e.printStackTrace();
     }
+
+    printAllAreas(bin);
 }
 
+public static void printAllAreas( BinarySearchTree<String> bin){
+    bin.inOrder();
+    System.out.println(bin.toString());
+}
 
 
 }
