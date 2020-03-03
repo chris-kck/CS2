@@ -5,17 +5,17 @@ JCC = javac
 
 # make runs first target which is default in this case
 
-default: ./out/LSArrayApp.class
+default: ./bin/LSArrayApp.class
 
-./out/LSArrayApp.class: ./src/LSArrayApp.java
-	$(JCC) -d ./out -g ./src/LSArrayApp.java
+./bin/LSArrayApp.class: ./src/LSArrayApp.java
+	$(JCC) -d ./bin -g ./src/LSArrayApp.java
 
 # Removes all .class files, so that the next make rebuilds them
 
 clean:
 	$(RM) *.class
 
-run: ./out/LSArrayApp.class
-	java -cp ./out LSArrayApp
+run: ./bin/LSArrayApp.class
+	java -cp ./bin LSArrayApp
 
 
