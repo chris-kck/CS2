@@ -1,6 +1,6 @@
 # define a makefile variable for the java compiler
 JCC = javac
-
+#params=" "
 # define a makefile variable for compilation flags
 
 # make runs first target which is default in this case
@@ -16,6 +16,4 @@ clean:
 	$(RM) *.class
 
 run: ./bin/LSArrayApp.class
-	java -cp ./bin LSArrayApp
-
-
+	java -cp ./bin LSArrayApp  $(params)
