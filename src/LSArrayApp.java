@@ -1,10 +1,20 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.util.Scanner;
 import java.lang.*;
 
+/**
+ * <h1><b>LSArrayApp</b></h1>
+ * The LSArrayApp program implements an application that
+ * reads data from a text file and stores it in an
+ * unsorted array data structure. It has a method which
+ * lookups up data matching with a user-specified key.
+ * <br<hr>
+ *
+ * @author  Chris Kateera
+ * @version 1.0
+ * @since   01-03-2020
+ */
 
 
 public class LSArrayApp {
@@ -15,6 +25,14 @@ public class LSArrayApp {
 
     public static void main(String[] args) {
         //read file and add to list
+        /**
+         * This is the main method which calls other relevant
+         * methods depending on arguments passed.
+         * @param args Used when user passes parameters
+         * @return Nothing.
+         * @exception FileNotFoundException If Schedule file not found
+         */
+        System.out.println("------------START-OF-OUTPUT-------------------");
         try {
             File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
@@ -34,7 +52,7 @@ public class LSArrayApp {
             e.printStackTrace();
         }
 
-        //System.out.println("Hello KC");
+
         if (args.length==0){
             printAllAreas();
         }
@@ -46,10 +64,16 @@ public class LSArrayApp {
 
         System.out.println("Value of opCount is:"+ opCount);
 
+        System.out.println("------------END-OF-OUTPUT------------------");
     }
 
 
     public static void printAreas (String stage, String day, String startTime){
+        /**
+         * printAreas method concatenated input strings and
+         * compares them with a stored key. Matching results
+         * are printed.
+         */
         String concat = stage + "_" +  day + "_" + startTime;
 
         for (String data: ArrayData) {
@@ -66,10 +90,14 @@ public class LSArrayApp {
             }
     }
     public static void printAllAreas() {
+        /**
+         * printAllAreas method prints out all the areas,
+         * times, stages and affected zones.
+         */
         for (String data: ArrayData) {
              System.out.println(data);
-
         }
+
     }
 
 }
