@@ -2,19 +2,19 @@
 // 26 March 2017
 // Hussein Suleman
 
-public class BinaryTreeNode<dataType>
+public class BinaryTreeNode<String>
 {
-   dataType data;
-   BinaryTreeNode<dataType> left;
-   BinaryTreeNode<dataType> right;
+   String data;
+   BinaryTreeNode<String> left;
+   BinaryTreeNode<String> right;
    
-   public BinaryTreeNode ( dataType d, BinaryTreeNode<dataType> l, BinaryTreeNode<dataType> r )
+   public BinaryTreeNode ( String d, BinaryTreeNode<String> l, BinaryTreeNode<String> r )
    {
       data = d;
       left = l;
       right = r;
    }
    
-   BinaryTreeNode<dataType> getLeft () { return left; }
-   BinaryTreeNode<dataType> getRight () { return right; }
+   BinaryTreeNode<String> getLeft () { return left; }
+   BinaryTreeNode<String> getRight () { return right; }
 }

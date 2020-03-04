@@ -43,8 +43,9 @@ public static void main(String[] args){
         printAreas(args[0], args[1], args[2]);
     }
     else{System.out.println("Invalid number of arguments");}
-
-    System.out.println("Value of opCount is:"+ opCount + "\n");
+    System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
+    System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
+            System.out.println("Value of opCount is:"+ opCount + "\n");
 }
 
 
@@ -57,8 +58,8 @@ public static void main(String[] args){
          */
         String concat = stage + "_" +  day + "_" + startTime;
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
-        //node = bin.find(concat);
-        //System.out.println(node.data);
+        node = bin.find(concat);
+        System.out.println(node.data);
             }
 
 public static void compare_nodes(){

@@ -2,9 +2,9 @@
 // 26 March 2017
 // Hussein Suleman
 
-public class BinaryTree<dataType>
+public class BinaryTree<String>
 {
-   BinaryTreeNode<dataType> root;
+   BinaryTreeNode<String> root;
    
    public BinaryTree ()
    {
@@ -15,7 +15,7 @@ public class BinaryTree<dataType>
    {
       return getHeight (root);
    }   
-   public int getHeight ( BinaryTreeNode<dataType> node )
+   public int getHeight ( BinaryTreeNode<String> node )
    {
       if (node == null)
          return -1;
@@ -27,7 +27,7 @@ public class BinaryTree<dataType>
    {
       return getSize (root);
    }   
-   public int getSize ( BinaryTreeNode<dataType> node )
+   public int getSize ( BinaryTreeNode<String> node )
    {
       if (node == null)
          return 0;
@@ -35,7 +35,7 @@ public class BinaryTree<dataType>
          return 1 + getSize (node.getLeft ()) + getSize (node.getRight ());
    }
    
-   public void visit ( BinaryTreeNode<dataType> node )
+   public void visit ( BinaryTreeNode<String> node )
    {
       System.out.println (node.data);
    }
@@ -44,7 +44,7 @@ public class BinaryTree<dataType>
    {
       preOrder (root);
    }
-   public void preOrder ( BinaryTreeNode<dataType> node )
+   public void preOrder ( BinaryTreeNode<String> node )
    {
       if (node != null)
       {
@@ -58,7 +58,7 @@ public class BinaryTree<dataType>
    {
       postOrder (root);
    }
-   public void postOrder ( BinaryTreeNode<dataType> node )
+   public void postOrder ( BinaryTreeNode<String> node )
    {
       if (node != null)
       {
@@ -72,7 +72,7 @@ public class BinaryTree<dataType>
    {
       inOrder (root);
    }
-   public void inOrder ( BinaryTreeNode<dataType> node )
+   public void inOrder ( BinaryTreeNode<String> node )
    {
       if (node != null)
       {
@@ -86,9 +86,9 @@ public class BinaryTree<dataType>
    {
       if (root == null)
          return;
-      BTQueue<dataType> q = new BTQueue<dataType> ();
+      BTQueue<String> q = new BTQueue<String> ();
       q.enQueue (root);
-      BinaryTreeNode<dataType> node;
+      BinaryTreeNode<String> node;
       while ((node = q.getNext ()) != null)
       {
          visit (node);

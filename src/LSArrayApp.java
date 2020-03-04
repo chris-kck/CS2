@@ -21,6 +21,8 @@ public class LSArrayApp {
 
     static String[] ArrayData= new String[2976];
     static int opCount = 0;
+    static int insertCount = 0;
+    static int findCount = 0;
     static boolean match_found= false;
 
     public static void main(String[] args) {
