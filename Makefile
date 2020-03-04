@@ -10,6 +10,8 @@ default: ./bin/LSArrayApp.class
 ./bin/LSArrayApp.class: ./src/LSArrayApp.java
 	$(JCC) -d ./bin -g ./src/LSArrayApp.java
 
+./bin/LSBSTApp.class: ./src/LSBSTApp.java
+	$(JCC) -d ./bin -g ./src/LSBSTApp.java
 # Removes all .class files, so that the next make rebuilds them
 
 clean:
@@ -17,3 +19,6 @@ clean:
 
 run: ./bin/LSArrayApp.class
 	java -cp ./bin LSArrayApp  $(params)
+
+run2: ./bin/LSBSTApp.class
+    java -cp ./bin LSBSTApp $(params)
