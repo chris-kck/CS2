@@ -38,7 +38,7 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
    }
    public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
    {
-      if (d.compareTo (node.data) == 0) 
+      if (d.compareTo (node.data) == 0)
          return node;
       else if (d.compareTo (node.data) < 0)
          return (node.left == null) ? null : find (d, node.left);

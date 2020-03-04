@@ -62,7 +62,7 @@ public class LSArrayApp {
         }
         else{System.out.println("Invalid number of arguments");}
 
-        System.out.println("Value of opCount is:"+ opCount);
+        System.out.println("Value of opCount is:"+ opCount + "\n");
 
         System.out.println("------------END-OF-OUTPUT------------------");
     }
@@ -89,6 +89,8 @@ public class LSArrayApp {
                 System.out.println("Areas not found");
             }
     }
+
+
     public static void printAllAreas() {
         /**
          * printAllAreas method prints out all the areas,

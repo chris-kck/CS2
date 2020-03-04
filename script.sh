@@ -4,7 +4,7 @@
 #echo "Hello $NAME!"
 
 #PART 1
-echo "Part 1 Execution: Check part1.txt"
+echo "Part 1 & 2 Execution: Check part1_2.txt"
 
 : '
 no parameters
@@ -17,5 +17,5 @@ make run params="4 17 10" &&
 make run params="8 10 22" &&
 make run params="3 5 7" &&
 make run params="4 7" &&
-make run params="invalid text input") > part1.txt
+make run params="invalid text input") > part1_2.txt
 
