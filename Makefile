@@ -7,6 +7,8 @@ JCC = javac
 
 default: ./bin/LSArrayApp.class
 
+bst: ./bin/LSBSTApp.class
+
 ./bin/LSArrayApp.class: ./src/LSArrayApp.java
 	$(JCC) -d ./bin -g ./src/LSArrayApp.java
 
