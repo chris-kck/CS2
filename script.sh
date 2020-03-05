@@ -3,7 +3,7 @@
 #NAME="Chris Kay"
 #echo "Hello $NAME!"
 
-#PART 1
+#PART 1&2
 echo "Part 1 & 2 Execution: Check part1_2.txt"
 : '
 no parameters
@@ -18,7 +18,7 @@ make run params="3 5 7" &&
 make run params="4 7" &&
 make run params="invalid text input") > part1_2.txt
 
-#PART 3
+#PART 3&4
 echo "Part 3 & 4 Execution: Check part3_4.txt"
 
 : '
@@ -26,7 +26,7 @@ no parameters
 3 working parameters
 3 invalid parameters
 '
-(make run &&
+(make run2 &&
 make run2 params="2 29 00" &&
 make run2 params="4 17 10" &&
 make run2 params="8 10 22" &&
