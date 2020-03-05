@@ -5,7 +5,6 @@
 
 #PART 1
 echo "Part 1 & 2 Execution: Check part1_2.txt"
-
 : '
 no parameters
 3 working parameters

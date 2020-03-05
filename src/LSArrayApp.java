@@ -24,6 +24,7 @@ public class LSArrayApp {
     static int insertCount = 0;
     static int findCount = 0;
     static boolean match_found= false;
+    static String[] files={"./src/subset/300.txt","./src/subset/600.txt","./src/subset/900.txt","./src/subset/1200.txt","./src/subset/1800.txt","./src/subset/2400.txt","./src/subset/2700.txt","./src/subset/2900.txt"};
 
     public static void main(String[] args) {
         //read file and add to list
@@ -35,37 +36,39 @@ public class LSArrayApp {
          * @exception FileNotFoundException If Schedule file not found
          */
         System.out.println("------------START-OF-OUTPUT-------------------");
-        try {
-            File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
-            Scanner myReader = new Scanner(myObj);
-	        int counter=0;
+        //for (String set:files) {
 
-	    while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-        		ArrayData[counter++]=data;
-                //System.out.println(data);
+            try {
+                File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");//set);
+                Scanner myReader = new Scanner(myObj);
+                int counter = 0;
+
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    ArrayData[counter++] = data;
+                    //System.out.println(data);
+                }
+                //System.out.println("The element is "+ArrayData[2970]);
+                //String[] splited = ArrayData[2970].split(" ");
+                //System.out.println("splitted is:" + splited[0]);
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
             }
-            //System.out.println("The element is "+ArrayData[2970]);
-            //String[] splited = ArrayData[2970].split(" ");
-	        //System.out.println("splitted is:" + splited[0]);
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
 
 
-        if (args.length==0){
-            printAllAreas();
-        }
-        else if (args.length==3){
-            System.out.println("Number of arguments: "+args.length);
-        printAreas(args[0], args[1], args[2]);
-        }
-        else{System.out.println("Invalid number of arguments");}
+            if (args.length == 0) {
+                printAllAreas();
+            } else if (args.length == 3) {
+                System.out.println("Number of arguments: " + args.length);
+                printAreas(args[0], args[1], args[2]);
+            } else {
+                System.out.println("Invalid number of arguments");
+            }
 
-        System.out.println("Value of opCount is:"+ opCount + "\n");
-
+            System.out.println("Value of opCount is:" + opCount + "\n");
+        //}
         System.out.println("------------END-OF-OUTPUT------------------");
     }
 
@@ -79,6 +82,7 @@ public class LSArrayApp {
         String concat = stage + "_" +  day + "_" + startTime;
 
         for (String data: ArrayData) {
+            if (data == null) break;
             opCount++;
             String[] splitted = data.split(" "); //data element0 2 elements: date etc, areas
             if (splitted[0].equals(concat)) {
@@ -99,6 +103,7 @@ public class LSArrayApp {
          * times, stages and affected zones.
          */
         for (String data: ArrayData) {
+            if (data == null) break;
              System.out.println(data);
         }
 
