@@ -32,7 +32,7 @@ clean:
 	$(RM) ./bin/*.class
 
 run: ./bin/LSArrayApp.class
-	java -cp ./bin LSArrayApp  $(params)
+	@java -cp ./bin LSArrayApp  $(params)
 
 run2:
-	java -cp ./bin LSBSTApp $(params)
+	@java -cp ./bin LSBSTApp $(params)
