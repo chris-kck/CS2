@@ -34,5 +34,5 @@ clean:
 run: ./bin/LSArrayApp.class
 	java -cp ./bin LSArrayApp  $(params)
 
-run2: ./bin/LSBSTApp.class
+run2:
 	java -cp ./bin LSBSTApp $(params)
