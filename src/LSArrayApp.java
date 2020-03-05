@@ -62,7 +62,7 @@ public class LSArrayApp {
                 printAllAreas();
             } else if (args.length == 1) {
                 //System.out.println("Number of arguments: " + args.length);
-                printAreas(args[0], args[1], args[2]);
+                printAreas(args[0]);
             } else {
                 System.out.println("Invalid number of arguments");
             }
