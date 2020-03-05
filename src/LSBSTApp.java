@@ -21,7 +21,7 @@ public class LSBSTApp {
 public static void main(String[] args){
     System.out.println("------------START-OF-OUTPUT-------------------");
     try {
-        File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
+        File myObj = new File("./src/subset/300.txt");
         Scanner myReader = new Scanner(myObj);
 
         while (myReader.hasNextLine()) {
@@ -36,9 +36,9 @@ public static void main(String[] args){
     if (args.length==0){
         printAllAreas(bin);
     }
-    else if (args.length==3){
+    else if (args.length==1){
         System.out.println("Number of arguments: "+args.length);
-        printAreas(args[0], args[1], args[2]);
+        printAreas(args[0]);//, args[1], args[2]);
     }
     else{System.out.println("Invalid number of arguments");}
 
@@ -51,13 +51,13 @@ public static void main(String[] args){
 
 
 
-    public static void printAreas (String stage, String day, String startTime){
+    public static void printAreas (String concat){
         /**
          * printAreas method concatenated input strings and
          * compares them with a stored key. Matching results
          * are printed.
          */
-        String concat = stage + "_" +  day + "_" + startTime;
+        //String concat = stage + "_" +  day + "_" + startTime;
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
         node = bin.find(concat);
         if (node!= null) {
