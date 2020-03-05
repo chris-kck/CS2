@@ -19,7 +19,7 @@ public class LSBSTApp {
     static int opCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<String >();
 public static void main(String[] args){
-    System.out.println("------------START-OF-OUTPUT-------------------");
+    //System.out.println("------------START-OF-OUTPUT-------------------");
     try {
         File myObj = new File("./src/subset/300.txt");
         Scanner myReader = new Scanner(myObj);
@@ -29,7 +29,7 @@ public static void main(String[] args){
         }
         myReader.close();
     } catch (FileNotFoundException e) {
-        System.out.println("An error occurred.");
+        //System.out.println("An error occurred.");
         e.printStackTrace();
     }
 
@@ -37,16 +37,17 @@ public static void main(String[] args){
         printAllAreas(bin);
     }
     else if (args.length==1){
-        System.out.println("Number of arguments: "+args.length);
+        //System.out.println("Number of arguments: "+args.length);
         printAreas(args[0]);//, args[1], args[2]);
     }
     else{System.out.println("Invalid number of arguments");}
 
 
-    System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
-    System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
-    System.out.println("Value of opCount is:"+ opCount + "\n");
-    System.out.println("------------END-OF-OUTPUT------------------");
+    //System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
+    //System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
+    System.out.println(LSArrayApp.findCount);
+    //System.out.println("Value of opCount is:"+ opCount + "\n");
+    //System.out.println("------------END-OF-OUTPUT------------------");
 }
 
 
@@ -61,10 +62,10 @@ public static void main(String[] args){
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
         node = bin.find(concat);
         if (node!= null) {
-            System.out.println(node.data);
+            //System.out.println(node.data);
         }
         else {
-            System.out.println("Areas not found");
+            //System.out.println("Areas not found");
         }
     }
 
@@ -75,7 +76,7 @@ public static void compare_nodes(){
 
 public static void printAllAreas( BinarySearchTree<String> bin){
     bin.inOrder();
-    System.out.println(bin.toString());
+    //System.out.println(bin.toString());
 }
 
 
