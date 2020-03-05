@@ -21,7 +21,7 @@ public class LSBSTApp {
 public static void main(String[] args){
     //System.out.println("------------START-OF-OUTPUT-------------------");
     try {
-        File myObj = new File("./src/subset/300.txt");
+        File myObj = new File("./src/subset/600.txt");
         Scanner myReader = new Scanner(myObj);
 
         while (myReader.hasNextLine()) {
