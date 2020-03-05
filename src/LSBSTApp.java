@@ -19,7 +19,7 @@ public class LSBSTApp {
     static int opCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<String >();
 public static void main(String[] args){
-
+    System.out.println("------------START-OF-OUTPUT-------------------");
     try {
         File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
         Scanner myReader = new Scanner(myObj);
@@ -45,7 +45,8 @@ public static void main(String[] args){
 
     System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
     System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
-            System.out.println("Value of opCount is:"+ opCount + "\n");
+    System.out.println("Value of opCount is:"+ opCount + "\n");
+    System.out.println("------------END-OF-OUTPUT------------------");
 }
 
 
