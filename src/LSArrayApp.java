@@ -24,7 +24,7 @@ public class LSArrayApp {
     static int insertCount = 0;
     static int findCount = 0;
     static boolean match_found= false;
-    static String[] files={"./src/subset/300.txt","./src/subset/600.txt","./src/subset/900.txt","./src/subset/1200.txt","./src/subset/1800.txt","./src/subset/2400.txt","./src/subset/2700.txt","./src/subset/2900.txt"};
+    static String[] files={"./src/subset/300.txt"};//,"./src/subset/600.txt","./src/subset/900.txt","./src/subset/1200.txt","./src/subset/1800.txt","./src/subset/2400.txt","./src/subset/2700.txt","./src/subset/2900.txt"};
 
     public static void main(String[] args) {
         //read file and add to list
