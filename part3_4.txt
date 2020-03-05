@@ -3002,4 +3002,21 @@ Value of opCount is:0
 
 java -cp ./bin LSBSTApp 3 5 7
 Number of arguments: 3
-Makefile:35: recipe for target 'run2' failed
+Areas not found
+Value of insertCount is:8092
+Value of findCount is:1
+Value of opCount is:0
+
+java -cp ./bin LSBSTApp 4 7
+Invalid number of arguments
+Value of insertCount is:8092
+Value of findCount is:0
+Value of opCount is:0
+
+java -cp ./bin LSBSTApp invalid text input
+Number of arguments: 3
+Areas not found
+Value of insertCount is:8092
+Value of findCount is:0
+Value of opCount is:0
+
