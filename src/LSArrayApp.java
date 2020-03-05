@@ -35,9 +35,9 @@ public class LSArrayApp {
          * @return Nothing.
          * @exception FileNotFoundException If Schedule file not found
          */
-        System.out.println("------------START-OF-OUTPUT-------------------");
-        for (String set:files) {
 
+        for (String set:files) {
+            System.out.println("------------START-OF-"+set+"OUTPUT-------------------");
             try {
                 File myObj = new File(set);
                 Scanner myReader = new Scanner(myObj);
@@ -60,26 +60,27 @@ public class LSArrayApp {
 
             if (args.length == 0) {
                 printAllAreas();
-            } else if (args.length == 3) {
-                System.out.println("Number of arguments: " + args.length);
+            } else if (args.length == 1) {
+                //System.out.println("Number of arguments: " + args.length);
                 printAreas(args[0], args[1], args[2]);
             } else {
                 System.out.println("Invalid number of arguments");
             }
 
             System.out.println("Value of opCount is:" + opCount + "\n");
+            System.out.println("------------END-OF-"+set+"OUTPUT------------------");
         }
-        System.out.println("------------END-OF-OUTPUT------------------");
+
     }
 
 
-    public static void printAreas (String stage, String day, String startTime){
+    public static void printAreas (String concat){
         /**
          * printAreas method concatenated input strings and
          * compares them with a stored key. Matching results
          * are printed.
          */
-        String concat = stage + "_" +  day + "_" + startTime;
+        //String concat = stage + "_" +  day + "_" + startTime;
 
         for (String data: ArrayData) {
             if (data == null) break;
