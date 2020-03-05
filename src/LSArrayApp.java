@@ -37,7 +37,7 @@ public class LSArrayApp {
          */
 
         for (String set:files) {
-            System.out.println("------------START-OF-"+set+"OUTPUT-------------------");
+            //System.out.println("------------START-OF-"+set+"OUTPUT-------------------");
             try {
                 File myObj = new File(set);
                 Scanner myReader = new Scanner(myObj);
@@ -67,8 +67,8 @@ public class LSArrayApp {
                 System.out.println("Invalid number of arguments");
             }
 
-            System.out.println("Value of opCount is:" + opCount + "\n");
-            System.out.println("------------END-OF-"+set+"OUTPUT------------------");
+            System.out.println(opCount);//"Value of opCount is:" + opCount + "\n");
+            //System.out.println("------------END-OF-"+set+"OUTPUT------------------");
         }
 
     }
@@ -87,7 +87,7 @@ public class LSArrayApp {
             opCount++;
             String[] splitted = data.split(" "); //data element0 2 elements: date etc, areas
             if (splitted[0].equals(concat)) {
-                System.out.println("Matching areas: " + splitted[1]);
+                //System.out.println("Matching areas: " + splitted[1]);
                 match_found = true;
                 break;
             }
