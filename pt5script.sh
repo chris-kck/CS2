@@ -12,10 +12,12 @@ no parameters
 '
 
 
+IFS=" "
 
-#for line in $(cat src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt )
-#do
-#   echo "$line">>kck.txt
-#done
-#done
+cat src/subset/300.txt | while read line; do
+ set $line 
+ #echo $1
+ make run "params=$1"
+done
 
+unset ifs
