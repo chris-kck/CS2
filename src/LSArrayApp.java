@@ -36,10 +36,10 @@ public class LSArrayApp {
          * @exception FileNotFoundException If Schedule file not found
          */
         System.out.println("------------START-OF-OUTPUT-------------------");
-        //for (String set:files) {
+        for (String set:files) {
 
             try {
-                File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");//set);
+                File myObj = new File(set);
                 Scanner myReader = new Scanner(myObj);
                 int counter = 0;
 
@@ -68,7 +68,7 @@ public class LSArrayApp {
             }
 
             System.out.println("Value of opCount is:" + opCount + "\n");
-        //}
+        }
         System.out.println("------------END-OF-OUTPUT------------------");
     }
 

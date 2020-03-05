@@ -25,6 +25,9 @@ default: ./bin/LSArrayApp.class
 ./bin/BinaryTreeNode.class: ./src/BinaryTreeNode.java
 	$(JCC) -d ./bin -g ./src/BinaryTreeNode.java
 
+docs:
+    javadoc -classpath bin/ -d doc/ src/*.java
+
 clean:
 	$(RM) ./bin/*.class
 
