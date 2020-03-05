@@ -9,7 +9,7 @@ import java.lang.*;
  * reads data from a text file and stores it in an
  * unsorted array data structure. It has a method which
  * lookups up data matching with a user-specified key.
- * <br<hr>
+ * <br><hr>
  *
  * @author  Chris Kateera
  * @version 1.0

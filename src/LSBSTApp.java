@@ -8,7 +8,7 @@ import java.util.Scanner;
  * reads data from a text file and stores it in a
  * binary search tree. It has a method which
  * lookups up data matching with a user-specified key.
- * <br<hr>
+ * <br><hr>
  * @author  Chris Kateera
  * @version 1.0
  * @since   01-03-2020
