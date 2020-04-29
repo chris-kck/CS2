@@ -35,6 +35,7 @@ public class LSBSTApp {
             e.printStackTrace();
         }
 
+        System.out.println("Value of BST insertCount is:"+ LSBSTApp.insertCount);
         if (args.length==0){
             printAllAreas(bin);
         }
@@ -64,16 +65,11 @@ public class LSBSTApp {
         node = bin.find(concat);
         if (node!= null) {
             System.out.println(node.data);
-            System.out.println(LSBSTApp.findCount);
+            System.out.println("Value of BST findCount is:"+ LSBSTApp.findCount);
         }
         else {
             System.out.println("Areas not found");
         }
-    }
-
-    public static void compare_nodes(){
-        //String split[]= node.data.toString().split(" ")
-        //for each bin node, create new [0] node then compare with concat node node.data[0] to
     }
 
     public static void printAllAreas( BinarySearchTree<String> bin){

@@ -36,21 +36,15 @@ public class AVLApp {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        System.out.println("Value of AVL insertCount is:"+ AVLApp.insertCount);
 
         if (args.length==0){
             printAllAreas(bin);
         }
         else if (args.length==1){
-            //System.out.println("Number of arguments: "+args.length);
             printAreas(args[0]);//, args[1], args[2]);
         }
         else{System.out.println("Invalid number of arguments");}
-
-
-        //System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
-        //System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
-        //System.out.println(LSArrayApp.findCount);
-        //System.out.println("Value of opCount is:"+ opCount + "\n");
         //System.out.println("------------END-OF-OUTPUT------------------");
     }
 
@@ -67,16 +61,11 @@ public class AVLApp {
         node = bin.find(concat);
         if (node!= null) {
             System.out.println(node.data);
-            System.out.println(AVLApp.findCount);
+            System.out.println("Value of AVL findCount is:"+ AVLApp.findCount);
         }
         else {
             System.out.println("Areas not found");
         }
-    }
-
-    public static void compare_nodes(){
-        //String split[]= node.data.toString().split(" ")
-        //for each bin node, create new [0] node then compare with concat node node.data[0] to
     }
 
     public static void printAllAreas( AVLTree<String> bin){
