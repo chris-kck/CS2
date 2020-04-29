@@ -11,7 +11,7 @@ default: ./bin/LSArrayApp.class
 	$(JCC) -d ./bin -g ./src/*.java
 
 ./bin/LSBSTApp.class: ./src/LSBSTApp.java
-	$(JCC) -d ./bin -g ./src/LSBSTApp.java
+	$(JCC) -d ./bin -g ./src/*.java
 # Removes all .class files, so that the next make rebuilds them
 ./bin/BinarySearchTree.class: ./src/BinarySearchTree.java
 	$(JCC) -d ./bin -g ./src/BinarySearchTree.java
@@ -28,7 +28,7 @@ docs:
 clean:
 	$(RM) ./bin/*.class
 
-bst: ./bin/LSArrayApp.class
+bst: ./bin/LSBSTApp.class
 	@java -cp ./bin LSBSTApp  $(params)
 
 avl: ./bin/LSArrayApp.class

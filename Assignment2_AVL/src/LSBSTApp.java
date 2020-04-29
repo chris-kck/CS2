@@ -19,7 +19,7 @@ public class LSBSTApp {
     static int findCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<>();
     public static void main(String[] args){
-        System.out.println("------------START-OF-OUTPUT-------------------");
+        System.out.println("------------START-OF-OUTPUT------------------");
         try {
             File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
