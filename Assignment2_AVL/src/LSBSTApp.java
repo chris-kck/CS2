@@ -71,7 +71,7 @@ public class LSBSTApp {
             System.out.println("Value of BST findCount is:"+ LSBSTApp.findCount);
         }
         else {
-            System.out.println("Areas not found");
+            System.out.println("Areas not found.");
         }
     }
 
