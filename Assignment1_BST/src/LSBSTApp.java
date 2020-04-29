@@ -17,6 +17,7 @@ public class LSBSTApp {
 
     static boolean match_found= false;
     static int opCount = 0;
+    static int insertCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<String >();
 public static void main(String[] args){
     //System.out.println("------------START-OF-OUTPUT-------------------");
@@ -76,7 +77,7 @@ public static void compare_nodes(){
 
 public static void printAllAreas( BinarySearchTree<String> bin){
     bin.inOrder();
-    //System.out.println(bin.toString());
+    System.out.println();
 }
 
 

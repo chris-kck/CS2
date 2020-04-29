@@ -3,17 +3,19 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * <h1><b>LSBSTApp</b></h1>
- * The LSBSTApp program implements an application that
+ * <h1><b>AVLApp</b></h1>
+ * The AVLApp program implements an application that
  * reads data from a text file and stores it in a
- * binary search tree. It has a method which
+ * AVL tree. It has a method which
  * lookups up data matching with a user-specified key.
  * <br><hr>
  * @author  Chris Kateera
  * @version 1.0
- * @since   01-03-2020
+ * @since   29-04-2020
  */
-public class LSBSTApp {
+
+public class AVLApp {
+
 
     static boolean match_found= false;
     static int opCount = 0;

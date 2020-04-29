@@ -5,7 +5,7 @@
 public class BinarySearchTree<String extends Comparable<? super String>> extends BinaryTree<String>
 {
    public void insert ( String d )
-   {  LSArrayApp.insertCount++;
+   {  LSBSTApp.insertCount++;
       if (root == null)
          root = new BinaryTreeNode<String> (d, null, null);
       else
@@ -14,7 +14,7 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
    public void insert ( String d, BinaryTreeNode<String> node )
    {
       if (d.compareTo (node.data) <= 0)
-      { LSArrayApp.insertCount++;
+      { LSBSTApp.insertCount++;
          if (node.left == null)
             node.left = new BinaryTreeNode<String> (d, null, null);
          else
@@ -28,7 +28,7 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
             insert (d, node.right);
       }
    }
-   
+
    public BinaryTreeNode<String> find ( String d )
    {
       if (root == null)
@@ -50,11 +50,11 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
       else
          return (node.right == null) ? null : find (d, node.right);
    }
-   
+
    public void delete ( String d )
    {
       root = delete (d, root);
-   }   
+   }
    public BinaryTreeNode<String> delete ( String d, BinaryTreeNode<String> node )
    {
       if (node == null) return null;
@@ -68,13 +68,13 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
          node.right = removeMin (node.right);
       }
       else
-         if (node.left != null)
-            node = node.left;
-         else
-            node = node.right;
+      if (node.left != null)
+         node = node.left;
+      else
+         node = node.right;
       return node;
    }
-   
+
    public BinaryTreeNode<String> findMin ( BinaryTreeNode<String> node )
    {
       if (node != null)
@@ -95,5 +95,5 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
       else
          return node.right;
    }
-   
+
 }

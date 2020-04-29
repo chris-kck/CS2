@@ -5,7 +5,7 @@
 public class BinarySearchTree<String extends Comparable<? super String>> extends BinaryTree<String>
 {
    public void insert ( String d )
-   {  LSArrayApp.insertCount++;
+   {  LSBSTApp.insertCount++;
       if (root == null)
          root = new BinaryTreeNode<String> (d, null, null);
       else
@@ -14,7 +14,7 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
    public void insert ( String d, BinaryTreeNode<String> node )
    {
       if (d.compareTo (node.data) <= 0)
-      { LSArrayApp.insertCount++;
+      { LSBSTApp.insertCount++;
          if (node.left == null)
             node.left = new BinaryTreeNode<String> (d, null, null);
          else
