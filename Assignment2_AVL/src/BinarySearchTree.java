@@ -2,6 +2,8 @@
 // 27 March 2017
 // Hussein Suleman
 
+import java.nio.charset.IllegalCharsetNameException;
+
 public class BinarySearchTree<String extends Comparable<? super String>> extends BinaryTree<String>
 {
    public void insert ( String d )
@@ -14,7 +16,7 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
    public void insert ( String d, BinaryTreeNode<String> node )
    {
       if (d.compareTo (node.data) <= 0)
-      { LSBSTApp.insertCount++;
+      {
          if (node.left == null)
             node.left = new BinaryTreeNode<String> (d, null, null);
          else
@@ -40,15 +42,17 @@ public class BinarySearchTree<String extends Comparable<? super String>> extends
    {  String[] split= (String[]) node.data.toString().split(" ");
 
       if (d.compareTo (split[0]) == 0) {
-         LSArrayApp.findCount++;
+         LSBSTApp.findCount++;
          return node;
       }
       else if (d.compareTo (split[0]) < 0) {
-         LSArrayApp.findCount++;
+         LSBSTApp.findCount++;
          return (node.left == null) ? null : find(d, node.left);
       }
-      else
-         return (node.right == null) ? null : find (d, node.right);
+      else {
+         LSBSTApp.findCount++;
+         return (node.right == null) ? null : find(d, node.right);
+      }
    }
 
    public void delete ( String d )

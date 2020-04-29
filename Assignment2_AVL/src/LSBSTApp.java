@@ -18,11 +18,12 @@ public class LSBSTApp {
     static boolean match_found= false;
     static int opCount = 0;
     static int insertCount = 0;
+    static int findCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<String >();
     public static void main(String[] args){
         //System.out.println("------------START-OF-OUTPUT-------------------");
         try {
-            File myObj = new File("./src/subset/600.txt");
+            File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
 
             while (myReader.hasNextLine()) {
@@ -30,7 +31,7 @@ public class LSBSTApp {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            //System.out.println("An error occurred.");
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
@@ -38,7 +39,6 @@ public class LSBSTApp {
             printAllAreas(bin);
         }
         else if (args.length==1){
-            //System.out.println("Number of arguments: "+args.length);
             printAreas(args[0]);//, args[1], args[2]);
         }
         else{System.out.println("Invalid number of arguments");}
@@ -63,10 +63,11 @@ public class LSBSTApp {
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
         node = bin.find(concat);
         if (node!= null) {
-            //System.out.println(node.data);
+            System.out.println(node.data);
+            System.out.println(LSBSTApp.findCount);
         }
         else {
-            //System.out.println("Areas not found");
+            System.out.println("Areas not found");
         }
     }
 
@@ -77,7 +78,7 @@ public class LSBSTApp {
 
     public static void printAllAreas( BinarySearchTree<String> bin){
         bin.inOrder();
-        System.out.println();
+        System.out.println(insertCount);
     }
 
 

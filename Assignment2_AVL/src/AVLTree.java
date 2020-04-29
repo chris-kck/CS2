@@ -61,7 +61,7 @@ public class AVLTree<String extends Comparable<? super String>> extends BinaryTr
    }
 
    public void insert ( String d )
-   {
+   {  AVLApp.insertCount++;
       root = insert (d, root);
    }
    public BinaryTreeNode<String> insert ( String d, BinaryTreeNode<String> node )
@@ -74,11 +74,11 @@ public class AVLTree<String extends Comparable<? super String>> extends BinaryTr
          node.right = insert (d, node.right);
       return balance (node);
    }
-   
+
    public void delete ( String d )
    {
       root = delete (d, root);
-   }   
+   }
    public BinaryTreeNode<String> delete ( String d, BinaryTreeNode<String> node )
    {
       if (node == null) return null;
@@ -99,7 +99,7 @@ public class AVLTree<String extends Comparable<? super String>> extends BinaryTr
       }
       return balance (node);
    }
-   
+
    public BinaryTreeNode<String> findMin ( BinaryTreeNode<String> node )
    {
       if (node.left != null)
@@ -124,15 +124,22 @@ public class AVLTree<String extends Comparable<? super String>> extends BinaryTr
          return find (d, root);
    }
    public BinaryTreeNode<String> find ( String d, BinaryTreeNode<String> node )
-   {
-      if (d.compareTo (node.data) == 0) 
+   {     String[] split= (String[]) node.data.toString().split(" ");
+
+      if (d.compareTo (split[0]) == 0) {
+         AVLApp.findCount++;
          return node;
-      else if (d.compareTo (node.data) < 0)
-         return (node.left == null) ? null : find (d, node.left);
-      else
-         return (node.right == null) ? null : find (d, node.right);
+      }
+      else if (d.compareTo (split[0]) < 0) {
+         AVLApp.findCount++;
+         return (node.left == null) ? null : find(d, node.left);
+      }
+      else {
+         AVLApp.findCount++;
+         return (node.right == null) ? null : find(d, node.right);
+      }
    }
-   
+
    public void treeOrder ()
    {
       treeOrder (root, 0);

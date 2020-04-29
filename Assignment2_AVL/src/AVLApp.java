@@ -20,11 +20,12 @@ public class AVLApp {
     static boolean match_found= false;
     static int opCount = 0;
     static int insertCount = 0;
-    static BinarySearchTree<String> bin = new BinarySearchTree<String >();
+    static int  findCount = 0;
+    static AVLTree<String> bin = new AVLTree<String >();
     public static void main(String[] args){
         //System.out.println("------------START-OF-OUTPUT-------------------");
         try {
-            File myObj = new File("./src/subset/600.txt");
+            File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
 
             while (myReader.hasNextLine()) {
@@ -32,7 +33,7 @@ public class AVLApp {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            //System.out.println("An error occurred.");
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
@@ -48,7 +49,7 @@ public class AVLApp {
 
         //System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
         //System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
-        System.out.println(LSArrayApp.findCount);
+        //System.out.println(LSArrayApp.findCount);
         //System.out.println("Value of opCount is:"+ opCount + "\n");
         //System.out.println("------------END-OF-OUTPUT------------------");
     }
@@ -65,10 +66,11 @@ public class AVLApp {
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
         node = bin.find(concat);
         if (node!= null) {
-            //System.out.println(node.data);
+            System.out.println(node.data);
+            System.out.println(AVLApp.findCount);
         }
         else {
-            //System.out.println("Areas not found");
+            System.out.println("Areas not found");
         }
     }
 
@@ -77,9 +79,9 @@ public class AVLApp {
         //for each bin node, create new [0] node then compare with concat node node.data[0] to
     }
 
-    public static void printAllAreas( BinarySearchTree<String> bin){
+    public static void printAllAreas( AVLTree<String> bin){
         bin.inOrder();
-        System.out.println();
+        System.out.println(AVLApp.insertCount);
     }
 
 
