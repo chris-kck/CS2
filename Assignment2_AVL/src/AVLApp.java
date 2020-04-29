@@ -44,11 +44,18 @@ public class AVLApp {
         else if (args.length==1){
             printAreas(args[0]);//, args[1], args[2]);
         }
-        else{System.out.println("Invalid number of arguments");}
+        else if (args.length==3){
+            printAreas(args[0], args[1], args[2]);
+        }
+
+        else {System.out.println("Invalid number of arguments");}
         //System.out.println("------------END-OF-OUTPUT------------------");
     }
 
-
+    public static void printAreas (String stage, String day, String startTime){
+        String concat = stage + "_" +  day + "_" + startTime;
+        printAreas(concat);
+    }
 
     public static void printAreas (String concat){
         /**
@@ -56,7 +63,7 @@ public class AVLApp {
          * compares them with a stored key. Matching results
          * are printed.
          */
-        //String concat = stage + "_" +  day + "_" + startTime;
+
         BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
         node = bin.find(concat);
         if (node!= null) {
