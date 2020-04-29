@@ -36,13 +36,16 @@ public class AVLApp {
         System.out.println("Value of AVL height is: "+ bin.getHeight());
 
         if (args.length==0){
+            System.out.println("Arguments: No arguments passed");
             printAllAreas(bin);
         }
         else if (args.length==3){
+            System.out.print("Arguments: ");
+            for (String arg : args) { System.out.print(arg+ " ");} System.out.println();
             printAreas(args[0], args[1], args[2]);
         }
 
-        else {System.out.println("Invalid number of arguments");}
+        else {System.out.println("Arguments: Invalid number of arguments");}
         System.out.println("------------END-OF-OUTPUT------------------");
     }
 
