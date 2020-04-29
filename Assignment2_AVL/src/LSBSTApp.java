@@ -19,7 +19,7 @@ public class LSBSTApp {
     static int opCount = 0;
     static int insertCount = 0;
     static int findCount = 0;
-    static BinarySearchTree<String> bin = new BinarySearchTree<String >();
+    static BinarySearchTree<String> bin = new BinarySearchTree<>();
     public static void main(String[] args){
         //System.out.println("------------START-OF-OUTPUT-------------------");
         try {
@@ -36,11 +36,12 @@ public class LSBSTApp {
         }
 
         System.out.println("Value of BST insertCount is:"+ LSBSTApp.insertCount);
+        System.out.println("Value of BST height is: "+ bin.getHeight());
         if (args.length==0){
             printAllAreas(bin);
         }
-        else if (args.length==1){
-            printAreas(args[0]);//, args[1], args[2]);
+        else if (args.length==3){
+            printAreas(args[0], args[1], args[2]);
         }
         else{System.out.println("Invalid number of arguments");}
 
@@ -52,7 +53,10 @@ public class LSBSTApp {
         //System.out.println("------------END-OF-OUTPUT------------------");
     }
 
-
+    public static void printAreas (String stage, String day, String startTime){
+        String concat = stage + "_" +  day + "_" + startTime;
+        printAreas(concat);
+    }
 
     public static void printAreas (String concat){
         /**
@@ -60,8 +64,7 @@ public class LSBSTApp {
          * compares them with a stored key. Matching results
          * are printed.
          */
-        //String concat = stage + "_" +  day + "_" + startTime;
-        BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
+        BinaryTreeNode<String> node;
         node = bin.find(concat);
         if (node!= null) {
             System.out.println(node.data);

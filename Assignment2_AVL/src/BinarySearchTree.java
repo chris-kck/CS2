@@ -2,8 +2,6 @@
 // 27 March 2017
 // Hussein Suleman
 
-import java.nio.charset.IllegalCharsetNameException;
-
 public class BinarySearchTree<String extends Comparable<? super String>> extends BinaryTree<String>
 {
    public void insert ( String d )

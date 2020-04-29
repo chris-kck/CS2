@@ -21,7 +21,7 @@ public class AVLApp {
     static int opCount = 0;
     static int insertCount = 0;
     static int  findCount = 0;
-    static AVLTree<String> bin = new AVLTree<String >();
+    static AVLTree<String> bin = new AVLTree<>();
     public static void main(String[] args){
         //System.out.println("------------START-OF-OUTPUT-------------------");
         try {
@@ -37,12 +37,10 @@ public class AVLApp {
             e.printStackTrace();
         }
         System.out.println("Value of AVL insertCount is:"+ AVLApp.insertCount);
+        System.out.println("Value of AVL height is: "+ bin.getHeight());
 
         if (args.length==0){
             printAllAreas(bin);
-        }
-        else if (args.length==1){
-            printAreas(args[0]);//, args[1], args[2]);
         }
         else if (args.length==3){
             printAreas(args[0], args[1], args[2]);
@@ -64,7 +62,7 @@ public class AVLApp {
          * are printed.
          */
 
-        BinaryTreeNode<String> node  = new BinaryTreeNode<String>(null,null,null);
+        BinaryTreeNode<String> node;
         node = bin.find(concat);
         if (node!= null) {
             System.out.println(node.data);
