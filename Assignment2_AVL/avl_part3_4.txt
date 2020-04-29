@@ -1,6 +1,7 @@
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: No arguments passed
 1_10_00 15
 1_10_02 16
 1_10_04 1
@@ -2982,33 +2983,38 @@ Value of AVL height is: 12
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: 2 29 00 
 2_29_00 4,12
 Value of AVL findCount is:9
 ------------END-OF-OUTPUT------------------
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: 4 17 10 
 4_17_10 6, 14, 2, 10
 Value of AVL findCount is:12
 ------------END-OF-OUTPUT------------------
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: 8 10 22 
 8_10_22 14, 6, 10, 2, 15, 7, 11, 3
 Value of AVL findCount is:12
 ------------END-OF-OUTPUT------------------
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: 3 5 7 
 Areas not found
 ------------END-OF-OUTPUT------------------
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
-Invalid number of arguments
+Arguments: Invalid number of arguments
 ------------END-OF-OUTPUT------------------
 ------------START-OF-OUTPUT-------------------
 Value of AVL insertCount is:2976
 Value of AVL height is: 12
+Arguments: invalid text input 
 Areas not found
 ------------END-OF-OUTPUT------------------

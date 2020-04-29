@@ -1,5 +1,7 @@
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: No arguments passed
 1_10_00 15
 1_10_02 16
 1_10_04 1
@@ -2977,31 +2979,42 @@ Value of BST height is: 206
 8_9_20 13, 5, 9, 1, 14, 6, 10, 2
 8_9_22 14, 6, 10, 2, 15, 7, 11, 3
 2976
-0
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: 2 29 00 
 2_29_00 4,12
 Value of BST findCount is:32
-0
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: 4 17 10 
 4_17_10 6, 14, 2, 10
 Value of BST findCount is:68
-0
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: 8 10 22 
 8_10_22 14, 6, 10, 2, 15, 7, 11, 3
 Value of BST findCount is:188
-0
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: 3 5 7 
 Areas not found.
-0
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
-Invalid number of arguments
-0
+Arguments: Invalid number of arguments
+------------END-OF-OUTPUT------------------
+------------START-OF-OUTPUT------------------
 Value of BST insertCount is:2976
 Value of BST height is: 206
+Arguments: invalid text input 
 Areas not found.
-0
+------------END-OF-OUTPUT------------------
