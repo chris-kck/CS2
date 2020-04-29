@@ -15,8 +15,6 @@ import java.util.Scanner;
  */
 public class LSBSTApp {
 
-    static boolean match_found= false;
-    static int opCount = 0;
     static int insertCount = 0;
     static int findCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<>();

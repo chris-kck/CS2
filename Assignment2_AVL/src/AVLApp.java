@@ -15,15 +15,11 @@ import java.util.Scanner;
  */
 
 public class AVLApp {
-
-
-    static boolean match_found= false;
-    static int opCount = 0;
     static int insertCount = 0;
     static int  findCount = 0;
-    static AVLTree<String> bin = new AVLTree<>();
+    static AVLTree<String> bin = new AVLTree<String>();
     public static void main(String[] args){
-        //System.out.println("------------START-OF-OUTPUT-------------------");
+        System.out.println("------------START-OF-OUTPUT-------------------");
         try {
             File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
@@ -47,7 +43,7 @@ public class AVLApp {
         }
 
         else {System.out.println("Invalid number of arguments");}
-        //System.out.println("------------END-OF-OUTPUT------------------");
+        System.out.println("------------END-OF-OUTPUT------------------");
     }
 
     public static void printAreas (String stage, String day, String startTime){

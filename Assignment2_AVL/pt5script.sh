@@ -17,7 +17,7 @@ IFS=" "
 cat src/subset/600.txt | while read line; do
  set $line 
  #echo $1
- make run2 "params=$1" >> LSBSTfind600.txt
+ make avl "params=$1" >> LSBSTfind600.txt
 done
 
 unset ifs

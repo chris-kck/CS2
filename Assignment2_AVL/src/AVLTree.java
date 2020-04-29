@@ -125,7 +125,6 @@ public class AVLTree<String extends Comparable<? super String>> extends BinaryTr
    }
    public BinaryTreeNode<String> find ( String d, BinaryTreeNode<String> node )
    {     String[] split= (String[]) node.data.toString().split(" ");
-
       if (d.compareTo (split[0]) == 0) {
          AVLApp.findCount++;
          return node;

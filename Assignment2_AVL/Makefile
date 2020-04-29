@@ -31,8 +31,8 @@ docs:
 clean:
 	$(RM) ./bin/*.class
 
-run: ./bin/LSArrayApp.class
-	@java -cp ./bin LSArrayApp  $(params)
+bst: ./bin/LSArrayApp.class
+	@java -cp ./bin LSBSTApp  $(params)
 
-run2:
-	@java -cp ./bin LSBSTApp $(params)
+avl:
+	@java -cp ./bin AVLApp $(params)
