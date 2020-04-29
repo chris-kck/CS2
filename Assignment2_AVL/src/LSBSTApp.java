@@ -39,12 +39,16 @@ public class LSBSTApp {
             System.out.println("Arguments: No arguments passed");
             printAllAreas(bin);
         }
+        else if (args.length==1){
+            printAreas(args[0]); //Condition for automation which passes 1 argument already concatenated
+        }
         else if (args.length==3){
             System.out.print("Arguments: ");
             for (String arg : args) { System.out.print(arg+ " ");} System.out.println();
             printAreas(args[0], args[1], args[2]);
         }
         else{System.out.println("Arguments: Invalid number of arguments");}
+        System.err.println(LSBSTApp.findCount); // Sends findCount to stderr stream for part5: I need to collect findCount values ONLY
         System.out.println("------------END-OF-OUTPUT------------------");
     }
 
@@ -72,7 +76,6 @@ public class LSBSTApp {
 
     public static void printAllAreas( BinarySearchTree<String> bin){
         bin.inOrder();
-        System.out.println(insertCount);
     }
 
 
