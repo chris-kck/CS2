@@ -19,7 +19,7 @@ public class LSBSTApp {
     static int findCount = 0;
     static BinarySearchTree<String> bin = new BinarySearchTree<>();
     public static void main(String[] args){
-        //System.out.println("------------START-OF-OUTPUT-------------------");
+        System.out.println("------------START-OF-OUTPUT-------------------");
         try {
             File myObj = new File("./src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt");
             Scanner myReader = new Scanner(myObj);
@@ -42,13 +42,7 @@ public class LSBSTApp {
             printAreas(args[0], args[1], args[2]);
         }
         else{System.out.println("Invalid number of arguments");}
-
-
-        //System.out.println("Value of insertCount is:"+ LSArrayApp.insertCount);
-        //System.out.println("Value of findCount is:"+ LSArrayApp.findCount);
-        System.out.println(LSArrayApp.findCount);
-        //System.out.println("Value of opCount is:"+ opCount + "\n");
-        //System.out.println("------------END-OF-OUTPUT------------------");
+        System.out.println("------------END-OF-OUTPUT------------------");
     }
 
     public static void printAreas (String stage, String day, String startTime){
