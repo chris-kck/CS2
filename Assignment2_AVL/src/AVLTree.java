@@ -3,28 +3,28 @@
 // Hussein Suleman
 // reference: kukuruku.co/post/avl-trees/
 
-public class AVLTree<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
+public class AVLTree<String extends Comparable<? super String>> extends BinaryTree<String>
 {
-   public int height ( BinaryTreeNode<dataType> node )
+   public int height ( BinaryTreeNode<String> node )
    {
       if (node != null)
          return node.height;
       return -1;
    }
    
-   public int balanceFactor ( BinaryTreeNode<dataType> node )
+   public int balanceFactor ( BinaryTreeNode<String> node )
    {
       return height (node.right) - height (node.left);
    }
    
-   public void fixHeight ( BinaryTreeNode<dataType> node )
+   public void fixHeight ( BinaryTreeNode<String> node )
    {
       node.height = Math.max (height (node.left), height (node.right)) + 1;
    }
    
-   public BinaryTreeNode<dataType> rotateRight ( BinaryTreeNode<dataType> p )
+   public BinaryTreeNode<String> rotateRight ( BinaryTreeNode<String> p )
    {
-      BinaryTreeNode<dataType> q = p.left;
+      BinaryTreeNode<String> q = p.left;
       p.left = q.right;
       q.right = p;
       fixHeight (p);
@@ -32,9 +32,9 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return q;
    }
 
-   public BinaryTreeNode<dataType> rotateLeft ( BinaryTreeNode<dataType> q )
+   public BinaryTreeNode<String> rotateLeft ( BinaryTreeNode<String> q )
    {
-      BinaryTreeNode<dataType> p = q.right;
+      BinaryTreeNode<String> p = q.right;
       q.right = p.left;
       p.left = q;
       fixHeight (q);
@@ -42,7 +42,7 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return p;
    }
    
-   public BinaryTreeNode<dataType> balance ( BinaryTreeNode<dataType> p )
+   public BinaryTreeNode<String> balance ( BinaryTreeNode<String> p )
    {
       fixHeight (p);
       if (balanceFactor (p) == 2)
@@ -60,14 +60,14 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return p;
    }
 
-   public void insert ( dataType d )
+   public void insert ( String d )
    {
       root = insert (d, root);
    }
-   public BinaryTreeNode<dataType> insert ( dataType d, BinaryTreeNode<dataType> node )
+   public BinaryTreeNode<String> insert ( String d, BinaryTreeNode<String> node )
    {
       if (node == null)
-         return new BinaryTreeNode<dataType> (d, null, null);
+         return new BinaryTreeNode<String> (d, null, null);
       if (d.compareTo (node.data) <= 0)
          node.left = insert (d, node.left);
       else
@@ -75,11 +75,11 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return balance (node);
    }
    
-   public void delete ( dataType d )
+   public void delete ( String d )
    {
       root = delete (d, root);
    }   
-   public BinaryTreeNode<dataType> delete ( dataType d, BinaryTreeNode<dataType> node )
+   public BinaryTreeNode<String> delete ( String d, BinaryTreeNode<String> node )
    {
       if (node == null) return null;
       if (d.compareTo (node.data) < 0)
@@ -88,11 +88,11 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
          node.right = delete (d, node.right);
       else
       {
-         BinaryTreeNode<dataType> q = node.left;
-         BinaryTreeNode<dataType> r = node.right;
+         BinaryTreeNode<String> q = node.left;
+         BinaryTreeNode<String> r = node.right;
          if (r == null)
             return q;
-         BinaryTreeNode<dataType> min = findMin (r);
+         BinaryTreeNode<String> min = findMin (r);
          min.right = removeMin (r);
          min.left = q;
          return balance (min);
@@ -100,7 +100,7 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return balance (node);
    }
    
-   public BinaryTreeNode<dataType> findMin ( BinaryTreeNode<dataType> node )
+   public BinaryTreeNode<String> findMin ( BinaryTreeNode<String> node )
    {
       if (node.left != null)
          return findMin (node.left);
@@ -108,7 +108,7 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
          return node;
    }
 
-   public BinaryTreeNode<dataType> removeMin ( BinaryTreeNode<dataType> node )
+   public BinaryTreeNode<String> removeMin ( BinaryTreeNode<String> node )
    {
       if (node.left == null)
          return node.right;
@@ -116,14 +116,14 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       return balance (node);
    }
 
-   public BinaryTreeNode<dataType> find ( dataType d )
+   public BinaryTreeNode<String> find ( String d )
    {
       if (root == null)
          return null;
       else
          return find (d, root);
    }
-   public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
+   public BinaryTreeNode<String> find ( String d, BinaryTreeNode<String> node )
    {
       if (d.compareTo (node.data) == 0) 
          return node;
@@ -137,7 +137,7 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
    {
       treeOrder (root, 0);
    }
-   public void treeOrder ( BinaryTreeNode<dataType> node, int level )
+   public void treeOrder ( BinaryTreeNode<String> node, int level )
    {
       if (node != null)
       {
