@@ -5,7 +5,6 @@
 #cat src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt | while read line;
 #echo $line >> 15.txt;
 #done
-
 #for i in {1..5}; do
 #    cat src/Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt |
 #for i in {1..5}
