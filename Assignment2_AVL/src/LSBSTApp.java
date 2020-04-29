@@ -62,7 +62,7 @@ public class LSBSTApp {
         /**
          * printAreas method concatenated input strings and
          * compares them with a stored key. Matching results
-         * are printed.
+         * are printed
          */
         BinaryTreeNode<String> node;
         node = bin.find(concat);
