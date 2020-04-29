@@ -3,9 +3,6 @@ all:	./bin/LSArrayApp.class
 # define a makefile variable for the java compiler
 JCC = javac
 #params=" "
-# define a makefile variable for compilation flags
-
-# make runs first target which is default in this case
 
 default: ./bin/LSArrayApp.class
 
@@ -34,5 +31,5 @@ clean:
 bst: ./bin/LSArrayApp.class
 	@java -cp ./bin LSBSTApp  $(params)
 
-avl:
+avl: ./bin/LSArrayApp.class
 	@java -cp ./bin AVLApp $(params)
