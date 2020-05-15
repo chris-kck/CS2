@@ -12,8 +12,8 @@ class TestHashTable
       List<String> linesmiss = null;
    
       try {
-         lines = Files.readAllLines (Paths.get ("names36.txt"));
-         linesmiss = Files.readAllLines (Paths.get ("namesmiss.txt"));
+         lines = Files.readAllLines (Paths.get ("./src/names36.txt"));
+         linesmiss = Files.readAllLines (Paths.get ("./src/namesmiss.txt"));
       } catch (Exception e) {
          System.out.println (e.toString ());
       }   
