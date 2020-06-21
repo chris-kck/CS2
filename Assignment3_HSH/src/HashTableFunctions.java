@@ -28,10 +28,7 @@ class HashTableFunctions
          System.out.println(hash);
       return sum;
    }
-
-
-
-   // return True if the hash table contains string s
+         // return True if the hash table contains string s
    // return False if the hash table does not contain string s
    boolean find ( String s )
    {
