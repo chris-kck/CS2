@@ -93,10 +93,7 @@ class Vertex
 // void addEdge( String v, String w, double cvw )
 //                              --> Add additional edge
 // void printPath( String w )   --> Print path after alg is run
-// void unweighted( String s )  --> Single-source unweighted
 // void dijkstra( String s )    --> Single-source weighted
-// void negative( String s )    --> Single-source negative weighted
-// void acyclic( String s )     --> Single-source acyclic
 // ******************ERRORS*********************************
 // Some error checking is performed to make sure graph is ok,
 // and to make sure graph satisfies properties needed by each
