@@ -159,9 +159,11 @@ public class Graph
         if( dest.prev != null )
         {
             printPath( dest.prev );
-            System.out.print( " to " );
+            //System.out.print( " to " );
+            //SimulatorOne.route += dest.prev.name + " ";
         }
-        System.out.print( dest.name );
+        //System.out.print( dest.name );
+        SimulatorOne.route += dest.name + " ";
     }
     
     /**

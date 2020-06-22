@@ -15,9 +15,6 @@ public class SimulatorOne {
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             String line;
             int lineNo=0;
-            int[] allNodes;
-            int[] hostpitalN;
-            int[] victimN;
             int Nodes =0;
             int count=0;
             Graph g = new Graph( );
@@ -39,8 +36,10 @@ public class SimulatorOne {
                 if (lineNo==Nodes+1){
                     System.out.println("Number of hospitals"+ line);
                 }
+                //hospitals/victims list will tell u how many hospitals /victims
                 if (lineNo==Nodes+2){
                     System.out.println("Hospital Nodes"+ line);
+
                 }
                 if (lineNo==Nodes+3){
                     System.out.println("Number of victims"+ line);
@@ -54,26 +53,15 @@ public class SimulatorOne {
                 // TODO: Handle input line
                 lineNo++; //increase line count
             }
-            //We now have our graph g populated. Now the fun part :)
-            // Null was received, so loop was aborted.
-            //g.dijkstra( startName );
-            //g.printPath( destName );
-            //g.printPath( destName );
-
-            //trip going
-            g.dijkstra( "2" ); //hospital
-            g.printPath( "0" ); // victim
-
-            //trip back
-            g.dijkstra( "0" ); //victim
-            g.printPath( "2" ); //back
-
-            //modiy printpath to print path instead of cost
+            //Input read complete, We now have our graph g populated. Now the fun part :
+            //For each victim, visit hospitals. check for several same minCost paths.
+            // for victim -> hospital, hospital (check all hospital costs, compare & store if equal cost.
 
 
+            roundTrip(g,"2","0");
 
         } catch (IOException e) {
-            // TODO: Add error handler
+            //Error handler
         }
 
     }
@@ -100,6 +88,22 @@ public class SimulatorOne {
                 g.addEdge(a[0],a[i],tmp);
             //}
         }
+    }
+    public static String route="";
+
+    public static void roundTrip(Graph g, String hospital, String victim){
+        g.dijkstra( hospital); //hospital
+        g.printPath( victim ); // victim
+        g.dijkstra( victim ); //victim
+        g.printPath( hospital ); //back
+
+        //remove repeated victim character & end space.
+        route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2, route.length()-1);
+
+        //compare different hospital routes.
+        System.out.println("Complete Clean route:"+ route);
+        //get a list with
+        //s.substring(0, pos) + s.substring(pos + 1);
     }
 
 }
