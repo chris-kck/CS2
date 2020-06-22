@@ -1,10 +1,19 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class SimulatorOne {
+    public static String[] victims = new String[5];
+    public static String[] hospitals = new String[5];
+    public static String route="";
+    public static int Tcost=0;
+    public static Route[] k = new Route[5];
+
 
     public static void main ( String [] args ){
         try {
@@ -17,37 +26,39 @@ public class SimulatorOne {
             int lineNo=0;
             int Nodes =0;
             int count=0;
+
             Graph g = new Graph( );
 
             while ((line = in.readLine()) != null) {
 
                 if (lineNo==0) {
                     Nodes = count = Integer.parseInt(line);
-                    System.out.println("Nodes= "+ Nodes);
+                    //System.out.println("Nodes= "+ Nodes);
                 }
                 if (count-->=0 && lineNo!=0){ //get all nodes' vertex info
-                    System.out.println("Source,Dest data:"+line); //iterate till zero
+                    //System.out.println("Source,Dest data:"+line); //iterate till zero
                     //create vertices here
                     String split[]= line.split(" ");
                     createGraph(split, g);
-
                 }
-                    //modify vertices to add hosp/victim info
                 if (lineNo==Nodes+1){
-                    System.out.println("Number of hospitals"+ line);
+                    //System.out.println("Number of hospitals"+ line);
                 }
                 //hospitals/victims list will tell u how many hospitals /victims
                 if (lineNo==Nodes+2){
-                    System.out.println("Hospital Nodes"+ line);
-
+                    //System.out.println("Hospital Nodes"+ line);
+                    hospitals = line.split(" ");
+                    //h.setHospitals(hospitals);
                 }
+
                 if (lineNo==Nodes+3){
-                    System.out.println("Number of victims"+ line);
+                    //System.out.println("Number of victims"+ line);
                 }
                 if (lineNo==Nodes+4){
-                    System.out.println("Victim Nodes"+ line);
+                    //System.out.println("Victim Nodes"+ line);
+                    victims = line.split(" ");
+                    //h.setVictims(victims);
                 }
-
 
                 //Lines = Nodes + Nodes info 1xNodes + hosp info x2 + victim info x2
                 // TODO: Handle input line
@@ -56,9 +67,20 @@ public class SimulatorOne {
             //Input read complete, We now have our graph g populated. Now the fun part :
             //For each victim, visit hospitals. check for several same minCost paths.
             // for victim -> hospital, hospital (check all hospital costs, compare & store if equal cost.
+            int i=0;
+            for (String victim : victims) {
+                System.out.println("victim " + victim);
+                for (String hospital : hospitals) { //different hospitals for same victim
+                    System.out.println("hospital " + hospital);
+                    k[i++]=new Route(victim,hospital, route, Tcost); // store routes in Array
 
-
-            roundTrip(g,"2","0");
+                     //roundTrip(g, hospital, victim); //changes Tcost value
+                    route="";
+                    Tcost=0;
+                    //create paths and compare seperately.
+                    System.out.println();
+                }
+            }
 
         } catch (IOException e) {
             //Error handler
@@ -89,9 +111,9 @@ public class SimulatorOne {
             //}
         }
     }
-    public static String route="";
 
     public static void roundTrip(Graph g, String hospital, String victim){
+        //System.out.println("Roundtrip from "+ hospital+" to "+victim);
         g.dijkstra( hospital); //hospital
         g.printPath( victim ); // victim
         g.dijkstra( victim ); //victim
@@ -101,9 +123,40 @@ public class SimulatorOne {
         route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2, route.length()-1);
 
         //compare different hospital routes.
-        System.out.println("Complete Clean route:"+ route);
-        //get a list with
-        //s.substring(0, pos) + s.substring(pos + 1);
+        System.out.println(route);
+        System.out.print("Tcost:"+ Tcost);
+        //create paths obj and compare costs. Print with lowest cost or equal costs.
     }
 
+}
+
+
+class Route {
+    public int Tcost;   // Vertex name
+    public String victim;   // Vertex name
+    public String hospital;   // Vertex name
+    public String route;    // Adjacent vertices
+
+    public Route(String victim, String hospital, String route, int Tcost){
+        this.Tcost=Tcost;
+        this.victim=victim;
+        this.hospital=hospital;
+        this.route=route;
+    }
+
+    public int getTcost() {
+        return Tcost;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public String getRoute() {
+        return route;
+    }
+
+    public String getVictim() {
+        return victim;
+    }
 }

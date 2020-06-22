@@ -5,18 +5,11 @@
  */
 
 
+import java.awt.*;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collection;
+import java.util.*;
 import java.util.List;
-import java.util.Queue;
-import java.util.Map;
-import java.util.LinkedList;
-import java.util.HashMap;
-import java.util.NoSuchElementException;
-import java.util.PriorityQueue;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 // Used to signal violations of preconditions for
 // various shortest path algorithms.
@@ -74,6 +67,72 @@ class Vertex
     public double     dist;   // Cost
     public Vertex     prev;   // Previous vertex on shortest path
     public int        scratch;// Extra variable used in algorithm
+    Collection<Vertex> prevs = new Collection<Vertex>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<Vertex> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] ts) {
+            return null;
+        }
+
+        @Override
+        public boolean add(Vertex vertex) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends Vertex> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> collection) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+    };
 
     public Vertex( String nm )
       { name = nm; adj = new LinkedList<Edge>( ); reset( ); }
@@ -128,9 +187,9 @@ public class Graph
             System.out.println( destName + " is unreachable" );
         else
         {
-            System.out.print( "(Cost is: " + w.dist + ") " );
+            //System.out.print( "(Cost is: " + w.dist + ") " );
+            SimulatorOne.Tcost += w.dist;
             printPath( w );
-            System.out.println( );
         }
     }
 
@@ -155,7 +214,7 @@ public class Graph
      * is known to exist.
      */
     private void printPath( Vertex dest )
-    {
+    { //printpaths should print all that .is in prevs
         if( dest.prev != null )
         {
             printPath( dest.prev );
@@ -181,8 +240,13 @@ public class Graph
      * Single-source weighted shortest-path algorithm. (Dijkstra) 
      * using priority queues based on the binary heap
      */
+
+
     public void dijkstra( String startName )
     {
+
+
+
         PriorityQueue<Path> pq = new PriorityQueue<Path>( );
 
         Vertex start = vertexMap.get( startName );
@@ -210,13 +274,26 @@ public class Graph
                 
                 if( cvw < 0 )
                     throw new GraphException( "Graph has negative edges" );
-                    
-                if( w.dist > v.dist + cvw )
+
+               if( w.dist > v.dist + cvw )
                 {
                     w.dist = v.dist +cvw;
                     w.prev = v;
                     pq.add( new Path( w, w.dist ) );
                 }
+
+
+                /*
+                if( w.dist >= v.dist + cvw ) {
+                    if ( w.dist > v.dist + cvw ) {
+                        w.dist = v.dist +cvw;
+                        w.prevs.clear();
+                    }
+                    w.prevs.add(v); //vertex collection will store the paths
+                    pq.add( new Path( w, w.dist ) );
+                }
+                */
+
             }
         }
     }
