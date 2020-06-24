@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 public class SimulatorOne {
@@ -72,43 +69,62 @@ public class SimulatorOne {
                 System.out.println("victim " + victim);
                 for (String hospital : hospitals) { //different hospitals for same victim
                     System.out.println("hospital " + hospital);
+                    roundTrip(g,hospital, victim); //modifies route
                     k[i++]=new Route(victim,hospital, route, Tcost); // store routes in Array
 
                      //roundTrip(g, hospital, victim); //changes Tcost value
-                    route="";
-                    Tcost=0;
-                    //create paths and compare seperately.
+                    route=""; Tcost=0; //reset route and Tcost for next iterstion
                     System.out.println();
                 }
             }
+
+            ArrayList<Route> answer= best_route(k, victims);
+                for (Route b:answer){
+                    System.out.println(b.toString());
+                }
 
         } catch (IOException e) {
             //Error handler
         }
 
     }
-    /*
-    public static int[] intList(String [] a){
-        int[] b = new int[a.length];
-        int count=0;
-        for (String data: a) {
-            count++;
-            b[count]=(Integer.parseInt(data));
-        }
-        return b;
+    //extend to produce for different victims
+    public static ArrayList best_route(Route[] k, String[] victims) {
+        //compare k's different hosp-vict route objects' Tcost. Print with lowest cost or equal costs.
+        ArrayList<Route> best = new ArrayList<Route>();
+
+
+            int n =0;
+            int kcount = 0;
+            for(String victim:victims) {
+                best.add(k[kcount]); //add first different victim's Route to compare to.
+                for (Route a : k) { //k has ALL victims
+                    //counts k's index
+                    if (a != null) {
+                    if (a.victim==victim) { //selects first victim & adds relevant detail, then moves on to next victim
+                        kcount++;
+                        if (a.Tcost < best.get(n).Tcost) {
+                                best.set(n, a); //replace new lowest cost route to 0.
+                            }
+                            if ((a.Tcost == best.get(n).Tcost) && !(a.route.equals(best.get(n).route))) {
+                                best.add(a); n++;//add to "1" route if cost is same but different routes
+                            }
+
+                            //if new victim, set best to new victim's
+
+                        }
+                    }
+                } n++; //kcount=0; //move to next arraylist element no.
+                //kcount=0;
+            }
+        return best;
     }
-     */
 
     public static void createGraph(String[] a, Graph g){
 
-        for (int i = 1; i < a.length; i+=2) {
-            //if (i==0) continue; //skip source index
-            //else{
-                //create vertex & edge
-                //when u add an edge, the algo adds the vertex if it didn't exist
-                double tmp = Double.parseDouble(a[i+1]);
+        for (int i = 1; i < a.length; i+=2) { // start from 1 to skip source index.
+                double tmp = Double.parseDouble(a[i+1]); //when u add an edge, the algo adds the vertex if it didn't exist
                 g.addEdge(a[0],a[i],tmp);
-            //}
         }
     }
 
@@ -118,14 +134,7 @@ public class SimulatorOne {
         g.printPath( victim ); // victim
         g.dijkstra( victim ); //victim
         g.printPath( hospital ); //back
-
-        //remove repeated victim character & end space.
-        route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2, route.length()-1);
-
-        //compare different hospital routes.
-        System.out.println(route);
-        System.out.print("Tcost:"+ Tcost);
-        //create paths obj and compare costs. Print with lowest cost or equal costs.
+        route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2, route.length()-1); //remove repeated victim character & end space.
     }
 
 }
@@ -158,5 +167,15 @@ class Route {
 
     public String getVictim() {
         return victim;
+    }
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "Tcost=" + Tcost +
+                ", victim='" + victim + '\'' +
+                ", hospital='" + hospital + '\'' +
+                ", route='" + route + '\'' +
+                '}';
     }
 }
