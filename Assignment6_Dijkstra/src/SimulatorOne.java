@@ -35,7 +35,7 @@ public class SimulatorOne {
                 if (count-->=0 && lineNo!=0){ //get all nodes' vertex info
                     //System.out.println("Source,Dest data:"+line); //iterate till zero
                     //create vertices here
-                    String split[]= line.split(" ");
+                    String split[]= line.replace("\t", " ").split(" ");
                     createGraph(split, g);
                 }
                 if (lineNo==Nodes+1){
@@ -44,7 +44,7 @@ public class SimulatorOne {
                 //hospitals/victims list will tell u how many hospitals /victims
                 if (lineNo==Nodes+2){
                     //System.out.println("Hospital Nodes"+ line);
-                    hospitals = line.split(" ");
+                    hospitals = line.trim().split(" ");
                     //h.setHospitals(hospitals);
                 }
 
@@ -53,7 +53,7 @@ public class SimulatorOne {
                 }
                 if (lineNo==Nodes+4){
                     //System.out.println("Victim Nodes"+ line);
-                    victims = line.split(" ");
+                    victims = line.trim().split(" ");
                     //h.setVictims(victims);
                 }
 
@@ -66,21 +66,30 @@ public class SimulatorOne {
             // for victim -> hospital, hospital (check all hospital costs, compare & store if equal cost.
             int i=0;
             for (String victim : victims) {
-                System.out.println("victim " + victim);
+                //System.out.println("victim " + victim);
                 for (String hospital : hospitals) { //different hospitals for same victim
-                    System.out.println("hospital " + hospital);
+                    //for hospital heck for same T.cost and output: multiple cost.
+                    //System.out.println("hospital " + hospital);
                     roundTrip(g,hospital, victim); //modifies route
                     k[i++]=new Route(victim,hospital, route, Tcost); // store routes in Array
 
                      //roundTrip(g, hospital, victim); //changes Tcost value
                     route=""; Tcost=0; //reset route and Tcost for next iterstion
-                    System.out.println();
+                    //System.out.println();
                 }
             }
 
             ArrayList<Route> answer= best_route(k, victims);
+                String v="";
                 for (Route b:answer){
-                    System.out.println(b.toString());
+                    if (!(b.victim.equals(v))){
+                        System.out.println("victim "+b.victim);
+                        System.out.println(b.toString());
+                        v = b.victim;
+                    }
+                    else{
+                        System.out.println(b.toString());
+                    }
                 }
 
         } catch (IOException e) {
@@ -124,7 +133,7 @@ public class SimulatorOne {
 
         for (int i = 1; i < a.length; i+=2) { // start from 1 to skip source index.
                 double tmp = Double.parseDouble(a[i+1]); //when u add an edge, the algo adds the vertex if it didn't exist
-                g.addEdge(a[0],a[i],tmp);
+                g.addEdge(a[0].trim(),a[i].trim(),tmp);
         }
     }
 
@@ -134,7 +143,7 @@ public class SimulatorOne {
         g.printPath( victim ); // victim
         g.dijkstra( victim ); //victim
         g.printPath( hospital ); //back
-        route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2, route.length()-1); //remove repeated victim character & end space.
+        route = route.substring(0,route.indexOf(victim))+ route.substring(route.indexOf(victim)+2).trim(); //remove repeated victim character & end space.
     }
 
 }
@@ -171,11 +180,9 @@ class Route {
 
     @Override
     public String toString() {
-        return "Route{" +
-                "Tcost=" + Tcost +
-                ", victim='" + victim + '\'' +
-                ", hospital='" + hospital + '\'' +
-                ", route='" + route + '\'' +
-                '}';
+             return  "hospital " + hospital + "\n"+ route;
     }
 }
+
+
+// routes gen - continue if unreachable, route=unreachable, Tcost high infini
